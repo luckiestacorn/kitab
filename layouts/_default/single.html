@@ -1,6 +1,11 @@
 {{ define "main" }}
 <div class="mb-2 p-3 position-relative bg-secondary rounded">
-  <h2>{{ .Title }}</h2>
+  <h2>{{ .Title }}
+    <h6 class="text-muted ms-2">({{ .WordCount }} words)</h6>
+      {{ if .Params.date }}
+        <span class="text-muted ms-2">{{ .Date.Format "02 Jan 2006" }}</span>
+      {{ end }}
+  </h2>
   <small>{{- partial "breadcrumb" . -}}</small>
   <hr />
   <div class="rounded">

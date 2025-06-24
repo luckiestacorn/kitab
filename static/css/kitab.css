@@ -43,8 +43,8 @@ footer {
 
 [data-bs-theme="dark"] {
   color-scheme: dark;
-  --bs-primary-rgb: 255, 170, 0;
-  --bs-link-color-rgb: 255, 170, 0;
-  --bs-link-hover-color-rgb: 198, 138, 0;
+  --bs-primary-rgb: 255, 0, 149;
+  --bs-link-color-rgb: 255, 0, 149;
+  --bs-link-hover-color-rgb: 199, 0, 109;
   --bs-secondary-rgb: 64, 64, 64;
 }

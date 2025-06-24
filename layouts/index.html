@@ -1,5 +1,7 @@
 {{ define "main" }}
 <h1 class="site-title text-center">{{- .Title -}}</h1>
+<p class="fs-4 text-center">{{- .Site.Params.subtitle -}}</p>
+
 <div class="d-flex flex-row justify-content-center row">
   {{ range .Site.Sections.ByWeight }}
   <div
@@ -10,10 +12,9 @@
       <h4 class="mb-0 p-0">{{ .Title | markdownify }}</h4>
     </a>
     <div class="text-right">
-      <small>
-        - {{ .Params.author }} ({{ .Date.Format (default "2006-May-13"
-        $.Site.Params.dateFormat) }})
-      </small>
+      <h6>
+        {{ .Params.subtitle | markdownify }}
+      </h6>
     </div>
     {{ partial "chapterlist.html" . }}
   </div>

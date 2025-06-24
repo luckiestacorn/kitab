@@ -2,15 +2,23 @@
 <div class="mb-2 p-3 bg-secondary rounded">
   <h1>{{ .Title | markdownify }}</h1>
   {{ if .Params.subtitle }}
-  <h4 class="fs-6">{{ .Params.subtitle }}</h4>
+  <h4 class="fs-5">{{ .Params.subtitle }}</h4>
   {{ end }}
-  <h2>by {{ .Params.author }}</h2>
+  {{ $totalWords := 0 }}
+  {{ range .Pages }}
+    {{ $totalWords = add $totalWords .WordCount }}
+  {{ end }}
+  <h4 class="fs-6"><i>Total word count:</i> {{ $totalWords }}</h4>
   <hr />
 
   <ul class="list-unstyled">
-    {{ range .Pages.ByWeight }}
+    {{ range .Pages.ByDate.Reverse }}
     <li>
-      <a href="{{ .Permalink }}"> {{- .Title -}} </a>
+      <a href="{{ .Permalink }}"> {{- .Title -}}</a>
+      <span class="text-muted ms-2">({{ .WordCount }} words)</span>
+      {{ if .Params.date }}
+        <span class="text-muted ms-2">{{ .Date.Format "02 Jan 2006" }}</span>
+      {{ end }}
       <div class="small chapter-summary">
         {{ if .Params.summary }}
         <p>{{ .Params.summary }}</p>
