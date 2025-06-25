@@ -48,3 +48,9 @@ footer {
   --bs-link-hover-color-rgb: 199, 0, 109;
   --bs-secondary-rgb: 64, 64, 64;
 }
+
+blockquote {
+  border-left: 4px solid #999;
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
