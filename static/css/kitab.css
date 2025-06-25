@@ -1,6 +1,12 @@
 html {
   scroll-behavior: smooth;
 }
+blockquote {
+  border-left: 4px solid #999;
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   overflow-y: scroll;
@@ -47,10 +53,4 @@ footer {
   --bs-link-color-rgb: 255, 0, 149;
   --bs-link-hover-color-rgb: 199, 0, 109;
   --bs-secondary-rgb: 64, 64, 64;
-}
-
-blockquote {
-  border-left: 4px solid #999;
-  padding-left: 1rem;
-  margin: 1rem 0;
 }
