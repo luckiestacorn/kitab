@@ -22,6 +22,11 @@
 {{/* Word Tracker Setup */}}
 {{ $totalWords := 0 }}
 {{ $wordsPerDay := dict }}
+{{ $dailyTarget := 2800 }}
+{{ $today := now }}
+{{ $startDate := time "2025-06-24" }}
+{{ $daysPassed := div (sub ($today.Unix) ($startDate.Unix)) 86400 }}
+{{ $goalWords := mul $dailyTarget $daysPassed }}
 
 {{ range .Site.RegularPages }}
   {{ $words := .WordCount }}
@@ -82,6 +87,7 @@
   <div class="text-center mb-4" style="margin-top: 24px;">
     <p>A "milwordy" is a challenge to write 1,000,000 words during the course of one year. This breaks down to just under 3,000 words (~2,800 words) a day. Each month is about 85,000 words, which is roughly the size of an average novel.</p>
     <p>So really, the challenge is to write (the equivalent of) a book a month. No biggie.</p>
+    <p>Suggested word count target by today: <strong>{{ $goalWords }}</strong></p>
   </div>
 </div>
 {{ end }}
