@@ -54,7 +54,7 @@
   {{ $oneYearLaterUnix := $oneYearLater.Unix }}
   {{ $start := cond (lt $nowUnix $oneYearLaterUnix) $fixedStart $twelveMonthsAgo }}
 
-  <div class="heatmap d-flex flex-wrap justify-content-center" style="gap: 2px;">
+  <div class="heatmap d-flex flex-wrap justify-content-center" style="gap: 2px; background-color: #f9f8f8; padding: 12px; border-radius: 6px;">
     {{ range $week := seq 0 52 }}
       <div class="d-flex flex-column">
         {{ range $day := seq 0 6 }}
