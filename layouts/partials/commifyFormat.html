@@ -1,0 +1,7 @@
+{{ $re := findRE "^(-?\\d+)(\\d{3})" . }}
+{{ if gt (len $re) 0 }}
+  {{ $next := replaceRE "^(-?\\d+)(\\d{3})" "${1},${2}" . }}
+  {{ partial "commifyFormat.html" $next }}
+{{ else }}
+  {{ . }}
+{{ end }}

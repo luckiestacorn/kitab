@@ -42,7 +42,7 @@
 <div class="container my-5">
   <div class="text-center mb-4">
     <h3>Total Words Written since June 25, 2025:</h3>
-    <p class="display-5 fw-bold">{{ $totalWords }}</p>
+    <p class="display-5 fw-bold">{{ partial "commify.html" $totalWords }}</p>
   </div>
 
   {{/* Heatmap Grid */}}
@@ -87,7 +87,7 @@
   <div class="text-center mb-4" style="margin-top: 24px;">
     <p>A "milwordy" is a challenge to write 1,000,000 words during the course of one year. This breaks down to just under 3,000 words (~2,800 words) a day. Each month is about 85,000 words, which is roughly the size of an average novel.</p>
     <p>So really, the challenge is to write (the equivalent of) a book a month. No biggie.</p>
-    <p>Suggested word count target by today: <strong>{{ $goalWords }}</strong></p>
+    <p>Suggested word count target by today: <strong>{{ partial "commify.html" $goalWords }}</strong></p>
   </div>
 </div>
 {{ end }}
