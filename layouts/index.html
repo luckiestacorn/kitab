@@ -92,8 +92,15 @@
   <div class="text-center mb-4" style="margin-top: 24px;">
     <p>A "milwordy" is a challenge to write 1,000,000 words during the course of one year. This breaks down to just under 3,000 words (~2,800 words) a day. Each month is about 85,000 words, which is roughly the size of an average novel.</p>
     <p>So really, the challenge is to write (the equivalent of) a book a month. No biggie.</p>
-    <p>Suggested word count target by today: <strong>{{ partial "commify.html" $goalWords }}</strong></p>
-    <p>Current daily record: I wrote <strong>{{ partial "commify.html" $wordRecord }}</strong> words on <strong>{{ $wordRecordDay }}.</strong> Damn!</p>
+    <p>🎯 Suggested word count target by today: <strong>{{ partial "commify.html" $goalWords }}</strong></p>
+    {{ if gt $goalWords $totalWords }}
+      {{ $catchupWords := sub $goalWords $totalWords }}
+      <p>[<strong>{{ partial "commify.html" $catchupWords }}</strong> words to catch up on ]</p>
+    {{ else if lt $goalWords $totalWords }}
+      {{ $aheadWords := sub $totalWords $goalWords }}
+      <p>(<strong>{{ partial "commify.html" $aheadWords }}</strong> words ahead - woohoo! )</p>
+    {{ end }}
+    <p>🏆 Current daily record: I wrote <strong>{{ partial "commify.html" $wordRecord }}</strong> words on <strong>{{ $wordRecordDay }}.</strong> Damn!</p>
   </div>
 </div>
 {{ end }}
