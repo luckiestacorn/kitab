@@ -71,9 +71,9 @@
             {{ end }}
             {{/* Bootstrap color levels */}}
             {{ $bg := "bg-light" }}
-            {{ if gt $count 1000 }}
+            {{ if gt $count 2800 }}
               {{ $bg = "bg-success" }}
-            {{ else if gt $count 500 }}
+            {{ else if gt $count 1000 }}
               {{ $bg = "bg-success bg-opacity-75" }}
             {{ else if gt $count 100 }}
               {{ $bg = "bg-success bg-opacity-50" }}
